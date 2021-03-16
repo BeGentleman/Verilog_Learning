@@ -84,12 +84,27 @@
 
 0x08 编译指令
      八种编译指令，其中由四种常用的。
-     `define：用于文本替换
-              举例说明：
-                      `define    S     $stop;  表示用`S 替换系统函数$Stop; 在后面要调用$Stop;的时候，可以直接用`S代替             
-     `undef：用于取消之前的替换
-             举例说明：
-                      `undef    S              这句话使`define    S     $stop;失效了
-     # TODO：剩下六种
+     第一种：
+          `define：用于文本替换
+                   举例说明：
+                           `define    S     $stop;  表示用`S 替换系统函数$Stop; 在后面要调用$Stop;的时候，可以直接用`S代替             
+          `undef：用于取消之前的替换
+                  举例说明：
+                           `undef    S              这句话使`define    S     $stop;失效了
+     第二种：
+          `ifdef：要和`endif成对出现，组成指令块，没有其他编译指令是可以的，用来开始条件判断；
+          `ifndef：相当于 if not def；
+          `else：`有别于ifdef的情况；
+          `elsif：还有第三种或更多判断的时候；
+          `endif：和`ifdef成对出现，结束条件判断。
+     
+     第三种：
+          `include：表示要引用哪一个文件，可以用绝对路径也可以用相对路径，路径用双引号引起来。
+          
+     第四种：
+          `timescale：用来定义时延、仿真的单位和精度。
+          格式：`timescale time_unit/time_precision
+          time_unit表示时间单位：s（秒），ms（毫秒），us（微秒），ns（纳秒），ps（皮秒），fs（飞秒）
+          time_precision表示时间精度
      
      PS:'`'在键盘数字1的左边一格，用英文模式。
